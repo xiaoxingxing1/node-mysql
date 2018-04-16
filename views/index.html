@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>todolist小例子</title>
+  <style>
+    .content {
+      width: 400px;
+      margin: 30px auto;
+      background-color: #f5f5f5;
+      border: 1px solid #eee;
+      border-radius: 4px;
+      padding: 15px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <h2>任务列表</h2>
+    <div>
+      <ul>
+        <li>
+          <input type="checkbox">
+          <span>任务1</span>
+        </li>
+      </ul>
+
+      <form action="/addTodoList" method="get">
+        <input type="text" placeholder="填入新任务" name="name">
+        <button type="submit">添加</button>
+      </form>
+    </div>
+  </div>
+</body>
+<script>
+</script>
+
+</html>
