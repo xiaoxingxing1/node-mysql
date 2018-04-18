@@ -23,11 +23,17 @@ function responseDoReturn(res, result, resultJSON) {
  */
 function query(sql, callback) {
   pool.getConnection(function(err, connection) {
-    connection.query(sql, function(err, rows) {
-      callback(err, rows);
-      //释放链接
-      connection.release();
-    });
+    if(err){
+      console.log('1-建立连接失败');
+    }else{
+      console.log('1-建立连接成功');
+      console.log(pool._allConnections.length);
+      connection.query(sql, function(err, rows) {
+        callback(err, rows);
+        //释放链接
+        connection.release();
+      });
+    }
   });
 }
 
@@ -36,11 +42,16 @@ function query(sql, callback) {
  */
 function queryArgs(sql, args, callback) {
   pool.getConnection(function(err, connection) {
-    connection.query(sql, args, function(err, rows) {
-      callback(err, rows);
-      //释放链接
-      connection.release();
-    });
+    if(err){
+      console.log('2-建立连接失败');
+    }else{
+      console.log('2-建立连接成功');
+      connection.query(sql, args, function(err, rows) {
+        callback(err, rows);
+        //释放链接
+        connection.release();
+      });
+    }
   });
 }
 

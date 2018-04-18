@@ -53,6 +53,23 @@ app.set('view engine', 'html');
 ```
 - 建 dao 文件夹，即 model 层
 
-
 ### 启动
-`npm start`
+- 开启 mysql 服务
+- `npm start`
+
+# 遇到的问题
+### Error: Can't set headers after they are sent
+- 原因
+```
+错误直译：不能发送headers因为已经发送过一次了。在处理HTTP请求时，服务器会先输出响应头，然后再输出主体内容，而一旦输出过一次响应头，你再尝试设置响应头时，就会报这个错误。原因在于程序有问题，重复作出响应。
+```
+
+- 解决方案
+```
+加return解决 或者加
+app.get('/*', function(req, res, next){ 
+  res.setHeader('Last-Modified', (new Date()).toUTCString());
+  next(); 
+});
+```
+

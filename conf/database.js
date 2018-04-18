@@ -1,8 +1,8 @@
 mysql = {
-  host: '127.0.0.1', 
+  host: 'localhost', 
   user: 'root',
   password: 'mysqlax123',
-  database:'todo',
+  database:'node_mysql',
   port: 3306
 }
 

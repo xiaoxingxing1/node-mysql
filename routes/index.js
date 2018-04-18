@@ -11,8 +11,7 @@ router.get('/', function(req, res, next) {
  * 增加一条todolist的接口
  */
 router.get('/addTodoList', function(req, res, next) {
-  todo.addTodoList(req,res,next);
-  res.render('index');
+  return todo.addTodoList(req,res,next);
 });
 
 module.exports = router;
